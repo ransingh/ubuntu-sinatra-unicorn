@@ -9,7 +9,13 @@ RUN apt-get -y update
 # install essentials
 RUN apt-get -y install build-essential curl
 RUN apt-get install -y -q git
-RUN apt-get install -y --force-yes zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
+RUN apt-get install -y --force-yes zlib1g-dev \
+    libssl-dev \
+    libreadline-dev \
+    libyaml-dev \
+    libxml2-dev \
+    libxslt-dev \
+    libpq-dev
 
 # Install rbenv
 RUN git clone https://github.com/sstephenson/rbenv.git /usr/local/rbenv
