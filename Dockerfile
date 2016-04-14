@@ -36,10 +36,10 @@ ENV PATH "$RBENV_ROOT/bin:$RBENV_ROOT/shims:/usr/local/sbin:/usr/local/bin:/usr/
 # $RBENV_ROOT/shims:$RBENV_ROOT/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # install ruby2
-RUN rbenv install 2.2.2
+RUN rbenv install 2.3.0
 
-# set ruby 2.2.2 as system ruby
-RUN ["rbenv","global","2.2.2"]
+# set ruby 2.2.0 as system ruby
+RUN ["rbenv","global","2.3.0"]
 
 # install Unicorn as app server
 RUN ["gem", "install", "unicorn"]
