@@ -34,7 +34,7 @@ RUN git clone https://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plu
 
 ENV RBENV_ROOT /usr/local/rbenv
 
-ENV PATH "$RBENV_ROOT/bin:$RBENV_ROOT/shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ENV PATH $RBENV_ROOT/bin:$RBENV_ROOT/shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # does not work
 # PATH is set to
 # $RBENV_ROOT/shims:$RBENV_ROOT/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -42,7 +42,7 @@ ENV PATH "$RBENV_ROOT/bin:$RBENV_ROOT/shims:/usr/local/sbin:/usr/local/bin:/usr/
 # install ruby2
 RUN rbenv install 2.3.0
 
-# set ruby 2.2.0 as system ruby
+# set ruby 2.3.0 as system ruby
 RUN ["rbenv","global","2.3.0"]
 
 # install Unicorn as app server
@@ -54,5 +54,5 @@ RUN ["gem", "install", "bundler"]
 # add new user
 RUN ["adduser", "--disabled-password", "--gecos", "Siglee", "siglee"]
 RUN ["adduser", "siglee", "sudo" ]
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL ?? /etc/sudoers'
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER siglee
